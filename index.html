@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="lv">
-<head>
+<!DOCTYPE html><html lang="lv"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dāvana, kas aug septiņpadsmit gadus</title>
+<title>Augusta pilngadības ieguldījumu konts</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&subset=latin,latin-ext&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;subset=latin,latin-ext&amp;display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#E9EBE4;
@@ -16,6 +14,7 @@
   --hairline:#C9CEC2;
   --pine:#1B5A56;
   --pine-soft:#A9C7C3;
+  --ochre:#C39A50;
   --plum:#7A2E3B;
 
   --display:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
@@ -23,7 +22,7 @@
   --mono:"IBM Plex Mono","Courier New",monospace;
 
   --measure:68ch;
-  --gap:clamp(3.5rem,7vw,6.5rem);
+  --gap:clamp(3rem,6vw,5rem);
 }
 
 *{box-sizing:border-box}
@@ -69,7 +68,7 @@ strong{font-weight:600}
 
 .eyebrow{
   font-size:.8rem;font-weight:600;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--pine);
+  text-transform:uppercase;color:var(--ochre);
   margin:0 0 1rem;display:block;
 }
 .lead{font-size:clamp(1.1rem,1.5vw,1.3rem);line-height:1.5;max-width:52ch}
@@ -78,59 +77,25 @@ strong{font-weight:600}
 section{padding:var(--gap) 0;border-top:1px solid var(--hairline)}
 section:first-of-type{border-top:none}
 
-.head{
-  display:grid;grid-template-columns:7.5rem 1fr;
-  gap:clamp(1rem,3vw,2.5rem);align-items:start;margin-bottom:2.4rem;
-}
-.age{
-  font-family:var(--mono);font-size:.8rem;font-weight:500;
-  color:var(--graphite);line-height:1.35;
-  padding-top:.5rem;border-top:2px solid var(--ink);
-}
-@media(max-width:720px){
-  .head{grid-template-columns:1fr;gap:.9rem}
-}
-
 /* hero */
-.hero{padding-top:clamp(3rem,8vw,6rem);padding-bottom:var(--gap)}
+.hero{
+  position:relative;
+  padding-top:clamp(3rem,8vw,6rem);
+  padding-bottom:var(--gap);
+  border-left:3px solid var(--pine);
+  padding-left:clamp(1.2rem,3vw,2.2rem);
+}
 .hero .lead{margin-top:1.6rem}
 
-/* doorframe chart */
-.frame{
-  margin-top:clamp(2.5rem,6vw,4rem);
-  border-left:3px solid var(--ink);
-  padding-left:clamp(.9rem,2.5vw,1.6rem);
-}
-.frame-cap{
-  font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;
-  color:var(--graphite);margin-bottom:1.4rem;text-transform:uppercase;
-}
-.mark{
-  display:grid;grid-template-columns:5.4rem 1fr auto;
-  align-items:center;gap:.6rem clamp(.6rem,2vw,1.2rem);padding:.28rem 0;
-}
-.mark-age{font-family:var(--mono);font-size:.78rem;color:var(--graphite)}
-.mark-bar{height:9px;position:relative;overflow:hidden}
-.mark-bar span{
-  position:absolute;left:0;top:0;bottom:0;display:block;
-  transform-origin:left center;transform:scaleX(var(--s,0));
-  transition:transform 1.1s cubic-bezier(.16,.84,.44,1);
-  transition-delay:var(--d,0s);
-}
-.seg-total{width:100%;background:var(--pine-soft)}
-.seg-paid{width:100%;background:var(--pine)}
-.mark-sum{
-  font-family:var(--mono);font-size:.8rem;font-weight:500;
-  font-variant-numeric:tabular-nums;min-width:5.4rem;text-align:right;
-}
-.mark.dim .mark-sum{color:var(--graphite)}
-.legend{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;margin-top:1.6rem;font-size:.86rem;color:var(--graphite)}
-.legend i{display:inline-block;width:1.6rem;height:9px;margin-right:.5rem;vertical-align:middle}
 @media(max-width:560px){
-  .mark{grid-template-columns:4.6rem 1fr auto}
-  .mark-sum{min-width:4.6rem;font-size:.74rem}
-  .mark-age{font-size:.72rem}
-  input[type=range]{height:6px;padding:12px 0;background-clip:content-box}
+  input[type=range]{height:44px}
+  .card-top{display:block}
+  .card-top h3{
+    font-size:clamp(.76rem,4vw,1rem);
+    letter-spacing:-.025em;
+    white-space:nowrap;
+  }
+  .card-top .share{display:block;margin-top:.35rem}
 }
 
 /* cards */
@@ -146,19 +111,36 @@ section:first-of-type{border-top:none}
 .reasons li{padding-left:clamp(1.1rem,3vw,2rem);border-left:2px solid var(--pine-soft);max-width:var(--measure)}
 .reasons b{font-family:var(--display);font-weight:600;display:block;margin-bottom:.25rem}
 
+.facts{
+  display:grid;gap:1px;background:var(--hairline);
+  border:1px solid var(--hairline);margin:2rem 0;
+}
+.fact{background:var(--panel);padding:1.15rem 1.25rem}
+.fact b{font-family:var(--display);font-size:.82rem;color:var(--graphite);display:block;margin-bottom:.25rem}
+.fact span{font-family:var(--display);font-weight:600}
+@media(min-width:700px){.facts{grid-template-columns:repeat(2,1fr)}}
+
+details{border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);padding:1rem 0}
+summary{font-family:var(--display);font-weight:600;cursor:pointer;color:var(--pine)}
+details[open] summary{margin-bottom:1.5rem}
+
 /* calculator */
 .calc{background:var(--panel);border:1px solid var(--hairline);padding:clamp(1.4rem,3.5vw,2.4rem);margin:2.2rem 0}
 .ctrl{margin-bottom:1.7rem}
 .ctrl label{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.2rem 1rem;margin-bottom:.7rem}
 .ctrl-name{font-family:var(--display);font-weight:600;font-size:1rem}
 .ctrl-val{font-family:var(--mono);font-weight:600;font-size:1.15rem;color:var(--pine)}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;background:var(--hairline);outline:none;margin:0}
+input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:44px;
+  background:linear-gradient(var(--hairline),var(--hairline)) center/100% 4px no-repeat;
+  outline:none;margin:-9px 0;cursor:pointer;
+}
 input[type=range]::-webkit-slider-thumb{
-  -webkit-appearance:none;appearance:none;width:26px;height:26px;border-radius:50%;
+  -webkit-appearance:none;appearance:none;width:28px;height:28px;border-radius:50%;
   background:var(--pine);border:3px solid var(--panel);box-shadow:0 0 0 1px var(--pine);cursor:pointer;
 }
 input[type=range]::-moz-range-thumb{
-  width:22px;height:22px;border-radius:50%;
+  width:28px;height:28px;border-radius:50%;
   background:var(--pine);border:3px solid var(--panel);box-shadow:0 0 0 1px var(--pine);cursor:pointer;
 }
 input[type=range]:focus-visible{outline:2px solid var(--ink);outline-offset:6px}
@@ -184,7 +166,7 @@ input[type=range]:focus-visible{outline:2px solid var(--ink);outline-offset:6px}
 footer{padding:var(--gap) 0 4rem;border-top:1px solid var(--hairline);font-size:.88rem;color:var(--graphite)}
 footer p{max-width:60ch}
 
-.rv{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.rv{opacity:1;transform:none}
 .rv.in{opacity:1;transform:none}
 
 @media(prefers-reduced-motion:reduce){
@@ -196,7 +178,7 @@ footer p{max-width:60ch}
   body{background:#fff;font-size:11pt;color:#000}
   .calc{display:none}
   section{break-inside:auto;page-break-inside:auto;padding:1.4rem 0}
-  .card,.warn,.frame{break-inside:avoid;page-break-inside:avoid}
+  .card,.warn{break-inside:avoid;page-break-inside:avoid}
   .rv{opacity:1;transform:none}
 }
 </style>
@@ -205,207 +187,118 @@ footer p{max-width:60ch}
 
 <main class="wrap">
 
-<!-- ============ HERO ============ -->
 <section class="hero">
-  <span class="eyebrow">Uzkrājums Augustam · sākts 2026. gadā</span>
   <h1>Dāvana, kas aug septiņpadsmit gadus</h1>
-  <p class="lead">Neliela summa katru mēnesi plus dzimšanas dienu dāvanas. Nauda tiek ieguldīta vairāk nekā tūkstoš lielos pasaules uzņēmumos un turēta ilgtermiņā līdz bērna pilngadībai. Šajā lapā ir izskaidrots, kas tieši tiek pirkts, kāpēc tieši tā un kas Tev jādara.</p>
-
+  <p class="lead">Augusta pilngadības ieguldījumu kontā regulārās iemaksas un naudas dāvanas tiek ieguldītas vienā plaši diversificētā pasaules akciju fondā. Kontu līdz Augusta 18 gadu vecumam pārvalda viņa likumiskais pārstāvis.</p>
 </section>
 
-<!-- ============ 1 ============ -->
 <section>
-  <div class="head">
-    <div class="age">Vienkāršā<br>valodā</div>
-    <div>
-      <h2>Ko nozīmē “ieguldīt”</h2>
-      <p>Ja nauda guļ norēķinu kontā, tā ar katru gadu nopērk mazāk, jo cenas aug. Septiņpadsmit gados tas ir liels zaudējums, kuru neviens nepamana, jo skaitlis kontā nemainās.</p>
-      <p>Tā vietā mēs par šo naudu pērkam mazas daļiņas ļoti daudzos pasaules uzņēmumos — ASV, Vācijā, Francijā, Japānā, Kanādā, Lielbritānijā. Pērkot fonda daļu, Tu vienā darījumā kļūsti par sīku līdzīpašnieku vairāk nekā tūkstoš uzņēmumos vienlaikus.</p>
-      <p>Ja pasaules ekonomika septiņpadsmit gados kopumā aug, aug arī uzkrājums. Ja kāds atsevišķs uzņēmums bankrotē, tas nav svarīgi, jo tā īpatsvars ir niecīgs. <strong>Tieši tāpēc mēs nepērkam atsevišķas akcijas — mēs pērkam plašu tirgus daļu uzreiz.</strong></p>
-    </div>
+  <h2>Plāns vienā skatā</h2>
+  <div class="facts rv">
+    <div class="fact"><b>Konta īpašnieks</b><span>Augusts</span></div>
+    <div class="fact"><b>Pārvaldība līdz pilngadībai</b><span>Likumiskais pārstāvis</span></div>
+    <div class="fact"><b>Ieguldījums</b><span>Viens pasaules akciju fonds</span></div>
+    <div class="fact"><b>Uzkrāšanas posms</b><span>Līdz 18 gadu vecumam</span></div>
+    <div class="fact"><b>Iemaksas</b><span>Regulāras summas un naudas dāvanas</span></div>
+    <div class="fact"><b>Pamatprincips</b><span>Ilgtermiņš, plašs sadalījums un zemas izmaksas</span></div>
   </div>
 </section>
 
-<!-- ============ 2 ============ -->
 <section>
-  <div class="head">
-    <div class="age">Ko tieši<br>pērkam</div>
-    <div>
-      <h2>Viens fonds. Un vairāk nekas</h2>
-      <p>Viss uzkrājums sastāv no viena Swedbank Robur fonda. To var pirkt bez darījuma komisijas un jau no 1 €, tāpēc tas ir piemērots arī mazām, neregulārām summām.</p>
-    </div>
-  </div>
+  <h2>Kā uzkrājums darbojas</h2>
+  <p>Visas iemaksas papildina vienu un to pašu uzkrājumu un tiek ieguldītas tajā pašā fondā.</p>
 
-  <div class="cards">
+  <ol class="steps rv">
+    <li><div><h3>Regulārās iemaksas</h3><p>Uzkrājums katru mēnesi tiek papildināts ar izvēlēto summu. Iemaksu apmēru var mainīt vai uz laiku apturēt.</p></div></li>
+    <li><div><h3>Naudas dāvanas</h3><p>Dzimšanas dienu un svētku dāvanas papildina to pašu uzkrājumu. Nav jāizvēlas cits fonds vai jāuztur vairāku fondu proporcijas.</p></div></li>
+    <li><div><h3>Ikgadējā pārbaude</h3><p>Reizi gadā tiek pārbaudītas regulārās iemaksas un būtiskie bankas paziņojumi par fondu.</p></div></li>
+  </ol>
+</section>
+
+<section>
+  <h2>Kur nauda tiek ieguldīta</h2>
+  <p>Ieguldot fondā, nauda tiek sadalīta starp daudziem uzņēmumiem un nozarēm. Atsevišķa uzņēmuma neveiksmei parasti ir neliela ietekme uz kopējo uzkrājumu, taču fonda vērtība tirgus svārstību dēļ var gan pieaugt, gan samazināties.</p>
+
+  <div class="cards rv">
     <div class="card">
       <div class="card-top">
         <h3>Swedbank Robur Access Edge Global C</h3>
         <span class="share">100 %</span>
       </div>
-      <p>Plašs akciju fonds, kas vienlaikus iegulda vairāk nekā tūkstoš lielos uzņēmumos dažādās pasaules valstīs. Tas ļauj ar vienu fondu sadalīt naudu starp daudziem uzņēmumiem un nozarēm.</p>
-      <p>Par savu darbu fonds ik gadu ietur 0,28 % no uzkrātās summas — no 10 000 € tie ir 28 € gadā. Tas tiek atvilkts automātiski; atsevišķi nekas nav jāmaksā.</p>
+      <p>Plašs akciju fonds, kas iegulda vairāk nekā tūkstoš lielos uzņēmumos dažādās attīstītajās valstīs.</p>
+      <p>Fonda izmaksas ir 0,28 % gadā — no 10 000 € tie ir 28 €. Izmaksas tiek ieturētas fondā; atsevišķs maksājums nav jāveic.</p>
       <span class="isin">ISIN SE0015192349 · fonda daļas EUR · riska līmenis 4 no 7</span>
     </div>
   </div>
-
-  <div class="frame">
-    <div class="frame-cap">Kā aug uzkrājums · piemērs: 20 € mēnesī un 200 € dāvanās gadā</div>
-
-    <div class="mark dim"><span class="mark-age">2 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.032;--d:.02s"></span><span class="seg-paid" style="--s:.032;--d:.02s"></span></div><span class="mark-sum">450 €</span></div>
-    <div class="mark dim"><span class="mark-age">3 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.067;--d:.06s"></span><span class="seg-paid" style="--s:.064;--d:.06s"></span></div><span class="mark-sum">930 €</span></div>
-    <div class="mark dim"><span class="mark-age">4 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.104;--d:.10s"></span><span class="seg-paid" style="--s:.096;--d:.10s"></span></div><span class="mark-sum">1 440 €</span></div>
-    <div class="mark dim"><span class="mark-age">5 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.144;--d:.14s"></span><span class="seg-paid" style="--s:.128;--d:.14s"></span></div><span class="mark-sum">1 990 €</span></div>
-    <div class="mark"><span class="mark-age">6 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.187;--d:.18s"></span><span class="seg-paid" style="--s:.160;--d:.18s"></span></div><span class="mark-sum">2 570 €</span></div>
-    <div class="mark dim"><span class="mark-age">7 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.232;--d:.22s"></span><span class="seg-paid" style="--s:.191;--d:.22s"></span></div><span class="mark-sum">3 200 €</span></div>
-    <div class="mark dim"><span class="mark-age">8 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.281;--d:.26s"></span><span class="seg-paid" style="--s:.223;--d:.26s"></span></div><span class="mark-sum">3 870 €</span></div>
-    <div class="mark dim"><span class="mark-age">9 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.333;--d:.30s"></span><span class="seg-paid" style="--s:.255;--d:.30s"></span></div><span class="mark-sum">4 590 €</span></div>
-    <div class="mark dim"><span class="mark-age">10 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.389;--d:.34s"></span><span class="seg-paid" style="--s:.287;--d:.34s"></span></div><span class="mark-sum">5 360 €</span></div>
-    <div class="mark"><span class="mark-age">11 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.448;--d:.38s"></span><span class="seg-paid" style="--s:.319;--d:.38s"></span></div><span class="mark-sum">6 180 €</span></div>
-    <div class="mark dim"><span class="mark-age">12 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.512;--d:.42s"></span><span class="seg-paid" style="--s:.351;--d:.42s"></span></div><span class="mark-sum">7 070 €</span></div>
-    <div class="mark dim"><span class="mark-age">13 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.580;--d:.46s"></span><span class="seg-paid" style="--s:.383;--d:.46s"></span></div><span class="mark-sum">8 010 €</span></div>
-    <div class="mark dim"><span class="mark-age">14 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.653;--d:.50s"></span><span class="seg-paid" style="--s:.415;--d:.50s"></span></div><span class="mark-sum">9 020 €</span></div>
-    <div class="mark"><span class="mark-age">15 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.731;--d:.54s"></span><span class="seg-paid" style="--s:.446;--d:.54s"></span></div><span class="mark-sum">10 090 €</span></div>
-    <div class="mark dim"><span class="mark-age">16 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.815;--d:.58s"></span><span class="seg-paid" style="--s:.478;--d:.58s"></span></div><span class="mark-sum">11 250 €</span></div>
-    <div class="mark dim"><span class="mark-age">17 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:.905;--d:.62s"></span><span class="seg-paid" style="--s:.510;--d:.62s"></span></div><span class="mark-sum">12 480 €</span></div>
-    <div class="mark"><span class="mark-age">18 gadi</span><div class="mark-bar"><span class="seg-total" style="--s:1;--d:.66s"></span><span class="seg-paid" style="--s:.542;--d:.66s"></span></div><span class="mark-sum">13 800 €</span></div>
-
-    <div class="legend">
-      <span><i style="background:var(--pine)"></i>iemaksāts no savas kabatas — 7 480 €</span>
-      <span><i style="background:var(--pine-soft)"></i>pieņemtā ieguldījuma izaugsme — aptuveni 6 300 €</span>
-    </div>
-    <p class="small" style="margin-top:1.2rem">Aprēķinā pieņemts, ka ieguldījums pēc fondu izmaksām vidēji pieaug par 7 % gadā. Tas ir ilustratīvs ilgtermiņa aprēķina pieņēmums, nevis prognoze vai solījums. Atsevišķos gados vērtība var arī būtiski kristies.</p>
-  </div>
 </section>
 
-<!-- ============ 3 ============ -->
 <section>
-  <div class="head">
-    <div class="age">Kāpēc<br>tieši tā</div>
-    <div>
-      <h2>Četri lēmumi, kas padara plānu noturīgāku</h2>
-    </div>
-  </div>
-
-  <ul class="reasons">
-    <li>
-      <b>Nekādas minēšanas.</b>
-      Nav jāizvēlas atsevišķas akcijas, tehnoloģiju uzņēmumi vai “karstās” nozares. Fonds pats sadala naudu starp ļoti daudziem lieliem uzņēmumiem, tāpēc nav jācenšas uzminēt nākotnes uzvarētājus.
-    </li>
-    <li>
-      <b>Zemas izmaksas.</b>
-      Jo mazāku maksu ietur fonds, jo vairāk paliek uzkrājumā. Šeit tā ir 0,28 % gadā. Bankas piedāvātajos “ieguldījumu risinājumos” un dzīvības apdrošināšanas uzkrājumos maksa mēdz būt vairākas reizes lielāka — pie 1,5 % gadā tas pats piemērs septiņpadsmit gados dotu par aptuveni 1 450 € mazāk.
-    </li>
-    <li>
-      <b>Nekādu obligātu maksājumu.</b>
-      Šis nav līgums un nav apdrošināšana. Ja kādu mēnesi vai gadu nav iespējas iemaksāt, nekas nenotiek. Jau ieguldītā nauda vienkārši paliek fondā.
-    </li>
-    <li>
-      <b>Plāns ir veidots tā, lai strādātu bez uzraudzības.</b>
-      Iemaksas ir paredzēts iestatīt automātiski. Ja Tu piecus gadus neatver internetbanku, nauda tik un tā paliek ieguldīta. Konkrētais tehniskais risinājums ir jāapstiprina bankā konta atvēršanas brīdī.
-    </li>
-  </ul>
-</section>
-
-<!-- ============ 4 ============ -->
-<section>
-  <div class="head">
-    <div class="age">Kā notiek<br>iemaksas</div>
-    <div>
-      <h2>Divas darbības un viena pārbaude</h2>
-      <p>Pirmā darbība tiek iestatīta vienu reizi un pēc tam notiek pati. Otrā notiek dažas reizes gadā, kad pienāk dāvanas. Trešais punkts aizņem piecas minūtes reizi gadā.</p>
-    </div>
-  </div>
-
-  <ol class="steps">
-    <li><div><h3>Automātiskais ikmēneša ieguldījums</h3><p>Internetbankā tiek iestatīti divi soļi: automātisks pārskaitījums uz ieguldījumu kontu un pāris dienas vēlāk automātisks fonda pirkums par to pašu summu — piemēram, 20 € mēnesī. Kad abi ir iestatīti, nauda nonāk tirgū pati, bez atgādinājumiem. Summu var mainīt vai apturēt jebkurā brīdī, un minimums ir 1 €.</p></div></li>
-    <li><div><h3>Dzimšanas dienas un svētku dāvanas</h3><p>Kad kāds uzdāvina naudu, tā tajā pašā nedēļā tiek ieguldīta tajā pašā fondā. Nekas nav jārēķina un nav jāsadala. Svarīgākais noteikums: nauda nedrīkst mēnešiem stāvēt kontā neieguldīta.</p></div></li>
-    <li><div><h3>Reizi gadā — piecas minūtes</h3><p>Bērna dzimšanas dienas mēnesī tiek atvērta internetbanka un pārbaudītas divas lietas: vai automātiskais pirkums joprojām notiek un vai gada laikā no bankas ir saņemts kāds paziņojums par šo fondu. Ja viss ir kārtībā, pārbaude ir galā.</p></div></li>
-  </ol>
-
-  <p class="small">Ieguldījumi tiek turēti ieguldījumu kontā. Tas nozīmē, ka vēlākā fondu maiņa — piemēram, pārejot uz drošākiem instrumentiem pirms naudas izmantošanas — pati par sevi nerada iedzīvotāju ienākuma nodokli, kamēr līdzekļi paliek ieguldījumu konta sistēmā. Nodokļa pienākums rodas tad, kad kopējās no ieguldījumu konta izmaksātās summas pārsniedz kopējās tajā veiktās iemaksas. Tieši šis ir galvenais iemesls, kāpēc konts tiek atvērts tieši ieguldījumu konta režīmā.</p>
-</section>
-
-<!-- ============ 5 ============ -->
-<section>
-  <div class="head">
-    <div class="age">Cik varētu<br>sanākt</div>
-    <div>
-      <h2>Pārbaudi pati</h2>
-      <p>Pavelc slīdņus un apskaties, kā mainās rezultāts. Divas kolonnas rāda vājāku un labāku tirgus scenāriju septiņpadsmit gadu laikā.</p>
-    </div>
-  </div>
+  <h2>Izmēģini aprēķinu</h2>
+  <p>Pavelc slīdņus un apskaties, kā iemaksu apmērs maina ilustratīvo rezultātu septiņpadsmit gadu laikā.</p>
 
   <div class="calc">
     <div class="ctrl">
       <label for="i"><span class="ctrl-name">Sākuma dāvana</span><span class="ctrl-val" id="iv">0 €</span></label>
-      <input type="range" id="i" min="0" max="2000" step="50" value="0">
+      <input type="range" id="i" min="0" max="2000" step="50" value="0" aria-valuetext="0 €" style="">
     </div>
     <div class="ctrl">
       <label for="m"><span class="ctrl-name">Katru mēnesi</span><span class="ctrl-val" id="mv">20 €</span></label>
-      <input type="range" id="m" min="0" max="100" step="5" value="20">
+      <input type="range" id="m" min="0" max="100" step="5" value="20" aria-valuetext="20 € mēnesī" style="">
     </div>
     <div class="ctrl">
       <label for="g"><span class="ctrl-name">Dāvanās gada laikā</span><span class="ctrl-val" id="gv">200 €</span></label>
-      <input type="range" id="g" min="0" max="1000" step="50" value="200">
+      <input type="range" id="g" min="0" max="1000" step="50" value="200" aria-valuetext="200 € gadā" style="">
     </div>
 
     <div class="results" aria-live="polite">
-      <div class="res"><div class="res-label">Iemaksāts kopā</div><div class="res-num" id="r0">—</div></div>
-      <div class="res"><div class="res-label">Vājāks scenārijs · 5 % gadā</div><div class="res-num hi" id="r5">—</div></div>
-      <div class="res"><div class="res-label">Labāks scenārijs · 7 % gadā</div><div class="res-num hi" id="r7">—</div></div>
+      <div class="res"><div class="res-label">Iemaksāts kopā</div><div class="res-num" id="r0">7480 €</div></div>
+      <div class="res"><div class="res-label">Vājāks scenārijs · 5 % gadā</div><div class="res-num hi" id="r5">11&nbsp;511 €</div></div>
+      <div class="res"><div class="res-label">Labāks scenārijs · 7 % gadā</div><div class="res-num hi" id="r7">13&nbsp;804 €</div></div>
     </div>
   </div>
 
-  <p>Piemēram, 20 € mēnesī un 200 € dāvanās gadā nozīmē, ka septiņpadsmit gados no savas kabatas tiek iemaksāti 7 480 €, bet uzkrājuma vērtība varētu būt aptuveni <strong>11 500–13 800 €</strong>. Starpība ir pieņemtā ieguldījuma izaugsme.</p>
-  <p class="small">Aprēķins ir ilustratīvs. 5 % un 7 % ir pieņemtā vidējā izaugsme gadā jau pēc fondu izmaksām, bet pirms nodokļiem. Iemaksu laiks aprēķinā ir vienkāršots. Faktiskais rezultāts būs citāds.</p>
-  <p class="small">Šie skaitļi ir arī pirms inflācijas. Ja cenas augs par aptuveni 2 % gadā, tad 13 800 € 2043. gadā pēc pirktspējas būs līdzīgi kā aptuveni 9 800 € šodien. Tas joprojām ir ievērojami vairāk nekā tā pati nauda, ko septiņpadsmit gadus tur krājkasītē.</p>
+  <p>Piemērā ar 20 € mēnesī un 200 € dāvanās gadā kopējās iemaksas septiņpadsmit gados ir 7 480 €. Ilustratīvajos scenārijos uzkrājuma vērtība sasniedz aptuveni <strong>11 500–13 800 €</strong>.</p>
+  <p class="small">Aprēķins nav prognoze vai solījums. 5 % un 7 % ir pieņemtā vidējā izaugsme gadā pēc fonda izmaksām, bet pirms nodokļiem. Faktiskais rezultāts var būt gan augstāks, gan zemāks.</p>
+  <p class="small">Šie skaitļi ir arī pirms inflācijas. Pieņemot aptuveni 2 % cenu pieaugumu gadā, 13 800 € perioda beigās pēc pirktspējas atbilst aptuveni 9 800 € šodien. Tas joprojām ir ievērojami vairāk nekā tā pati nauda, ko septiņpadsmit gadus tur krājkasītē.</p>
 </section>
 
-<!-- ============ 6 ============ -->
 <section>
-  <div class="head">
-    <div class="age">Ko šis plāns<br>nesola</div>
-    <div>
-      <h2>Godīgi par risku</h2>
-      <p>Ja kāds Tev apsola ieguldījumu bez riska ar labu peļņu, viņš melo. Tāpēc šeit ir uzrakstīts arī tas, kas var iet greizi.</p>
-    </div>
-  </div>
+  <h2>Kas jāzina par risku</h2>
+  <p>Ieguldījums ar augstāku sagaidāmo atdevi vienmēr ir saistīts ar risku.</p>
 
   <div class="warn">
-    <h3>Vērtība laiku pa laikam kritīsies</h3>
+    <h3>Vērtība svārstās</h3>
     <p>Septiņpadsmit gadu periodā jārēķinās ar būtiskiem akciju tirgus kritumiem. Vēsturē 20 % un lielāki kritumi ir notikuši vairākkārt, un atkopšanās ilgums nav paredzams — dažreiz tie ir mēneši, dažreiz vairāki gadi.</p>
-    <p><strong>Galvenais noteikums ir nepārdot panikas dēļ.</strong> Krituma laikā uzkrājuma vērtība tiešām būs mazāka, taču ilgtermiņa plānā šādi periodi ir gaidāmi. Tāpēc lēmumus nepieņemam pēc emocijām — turpinām iepriekš noteikto plānu.</p>
+    <p><strong>Galvenais princips ir nepārdot panikas dēļ.</strong> Tirgus kritumi ir paredzama ilgtermiņa ieguldīšanas daļa.</p>
   </div>
 
   <div class="warn">
-    <h3>7 % gadā nav garantija</h3>
-    <p>7 % ir ilustratīvs ilgtermiņa aprēķina pieņēmums, nevis prognoze vai solījums. Faktiskais rezultāts var būt gan augstāks, gan zemāks. Tieši tāpēc aprēķinos ir rādīti divi scenāriji, nevis viens skaists skaitlis.</p>
-  </div>
-
-  <div class="warn">
-    <h3>Konts būs uz Tava vārda</h3>
-    <p>Juridiski šī nauda pieder Tev, ne bērnam. Pilngadībā tā automātiski nepāriet — naudu nodod Tu. Lai uzkrājums nonāktu pie bērna arī neparedzētā gadījumā, pie notāra jānoformē mantojuma risinājums tieši šim kontam.</p>
+    <h3>Atdeve nav garantēta</h3>
+    <p>Kalkulatorā izmantotie scenāriji palīdz saprast iespējamo ilgtermiņa rezultātu, bet neparedz nākotni.</p>
   </div>
 </section>
 
-<!-- ============ 7 ============ -->
 <section>
-  <div class="head">
-    <div class="age">Īsā<br>versija</div>
-    <div>
-      <h2>Viss, kas jāatceras</h2>
-      <ul class="reasons">
-        <li><b>Katru mēnesi.</b> Automātiski notiek abi soļi — pārskaitījums uz ieguldījumu kontu un fonda pirkums.</li>
-        <li><b>Kad pienāk dāvana.</b> Ieguldīt tajā pašā fondā.</li>
-        <li><b>Reizi gadā.</b> Pārbaudīt, vai automātiskais pirkums darbojas un vai nav bankas paziņojumu.</li>
-        <li><b>Kad tirgus krīt.</b> Nepārdot panikas dēļ.</li>
+  <h2>Kam pieder konts</h2>
+  <p>Kontā esošā nauda un finanšu instrumenti pieder Augustam. Līdz viņa pilngadībai kontu Augusta vārdā pārvalda likumiskais pārstāvis. Sasniedzot 18 gadu vecumu, Augusts iegūst tiesības ar kontu rīkoties patstāvīgi.</p>
+  <p class="small">Fonda maiņa pati par sevi nerada iedzīvotāju ienākuma nodokli, kamēr līdzekļi paliek ieguldījumu konta sistēmā. Nodokļa pienākums rodas, kad kopējā no konta izmaksātā summa pārsniedz kopējās iemaksas.</p>
+</section>
+
+<section>
+  <h2>Kāpēc izvēlēts viens fonds</h2>
+  <details>
+    <summary>Lasīt pamatojumu</summary>
+      <ul class="reasons rv">
+        <li><b>Plašs sadalījums.</b> Nav jāizvēlas atsevišķas akcijas vai jācenšas uzminēt nākotnes veiksmīgākās nozares.</li>
+        <li><b>Zemas izmaksas.</b> Mazākas fonda izmaksas nozīmē, ka lielāka daļa ieguldījuma paliek uzkrājumā.</li>
+        <li><b>Elastīgas iemaksas.</b> Iemaksu apmēru var mainīt vai uz laiku apturēt, bet jau ieguldītie līdzekļi paliek fondā.</li>
+        <li><b>Vienkārša uzturēšana.</b> Nav jāuztur vairāku fondu proporcijas vai regulāri jāizvēlas jauni instrumenti.</li>
       </ul>
-    </div>
-  </div>
+  </details>
 </section>
 
 <footer>
-  <p>Šis dokuments ir sagatavots kā dāvanas apraksts ģimenei, nevis kā licencēta investīciju konsultācija. Fondu nosaukumi, komisijas un nodokļu noteikumi ir aprakstīti pēc 2026. gada informācijas un laika gaitā var mainīties. Regulāro ieguldījumu tehniskais risinājums, nodokļu režīms un mantojuma jautājumi ir jāapstiprina bankā un pie notāra.</p>
+  <p>Šis ir informatīvs dāvanas apraksts ģimenei, nevis individuāla ieguldījumu konsultācija. Fonda raksturlielumi, komisijas un nodokļu noteikumi laika gaitā var mainīties, tāpēc aktuālā informācija vienmēr ir pārbaudāma bankas un fonda dokumentos.</p>
 </footer>
 
 </main>
@@ -453,37 +346,9 @@ footer p{max-width:60ch}
   ['i','m','g'].forEach(function(k){ els[k].addEventListener('input', update); });
   update();
 
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Doorframe marks
-  var bars = document.querySelectorAll('.mark-bar span');
-  var stored = [];
-  bars.forEach(function(b, i){
-    stored[i] = b.style.getPropertyValue('--s');
-    if (!reduce) b.style.setProperty('--s', '0');
-  });
-  function draw(){ bars.forEach(function(b, i){ b.style.setProperty('--s', stored[i]); }); }
-
-  if (window.IntersectionObserver && !reduce){
-    var io = new IntersectionObserver(function(e){
-      e.forEach(function(x){ if (x.isIntersecting){ draw(); io.disconnect(); } });
-    }, {threshold: 0.15});
-    io.observe(document.querySelector('.frame'));
-  } else {
-    draw();
-  }
-
-  // Section reveal
-  if (window.IntersectionObserver && !reduce){
-    var secs = document.querySelectorAll('section .head, .cards, .reasons, .steps');
-    secs.forEach(function(s){ s.classList.add('rv'); });
-    var io2 = new IntersectionObserver(function(e){
-      e.forEach(function(x){ if (x.isIntersecting){ x.target.classList.add('in'); io2.unobserve(x.target); } });
-    }, {threshold: 0.08, rootMargin: '0px 0px -40px 0px'});
-    secs.forEach(function(s){ io2.observe(s); });
-  }
 })();
 </script>
 
-</body>
-</html>
+
+
+</body></html>
